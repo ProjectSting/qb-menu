@@ -7,17 +7,17 @@ local sendData = nil
 -- Functions
 local function openMenu(data)
     if not data or not next(data) then return end
-	for _,v in pairs(data) do
-		if v["icon"] then
-			local img = "qb-inventory/html/"
-			if QBCore.Shared.Items[tostring(v["icon"])] then
-				if not string.find(QBCore.Shared.Items[tostring(v["icon"])].image, "images/") then
-					img = img.."images/"
-				end
-				v["icon"] = img..QBCore.Shared.Items[tostring(v["icon"])].image
-			end
-		end
-	end
+    for _, v in pairs(data) do
+        if v["icon"] then
+            local img = "qb-inventory/html/"
+            if QBCore.Shared.Items[tostring(v["icon"])] then
+                if not string.find(QBCore.Shared.Items[tostring(v["icon"])].image, "images/") then
+                    img = img .. "images/"
+                end
+                v["icon"] = img .. QBCore.Shared.Items[tostring(v["icon"])].image
+            end
+        end
+    end
     SetNuiFocus(true, true)
     headerShown = false
     sendData = data
@@ -58,7 +58,7 @@ end)
 
 -- NUI Callbacks
 
-RegisterNUICallback('clickedButton', function(option, cb)
+RegisterNUICallback('clickedButton', function(option)
     if headerShown then headerShown = false end
     PlaySoundFrontend(-1, 'Highlight_Cancel', 'DLC_HEIST_PLANNING_BOARD_SOUNDS', 1)
     SetNuiFocus(false)
@@ -81,14 +81,13 @@ RegisterNUICallback('clickedButton', function(option, cb)
             end
         end
     end
-    cb('ok')
 end)
 
-RegisterNUICallback('closeMenu', function(_, cb)
+RegisterNUICallback('closeMenu', function()
     headerShown = false
     sendData = nil
     SetNuiFocus(false)
-    cb('ok')
+    TriggerEvent('keep-jobgarages:client:delete_if_exist')
 end)
 
 -- Command and Keymapping
