@@ -87,7 +87,7 @@ RegisterNUICallback('closeMenu', function()
     headerShown = false
     sendData = nil
     SetNuiFocus(false)
-    -- TriggerEvent('keep-jobgarages:client:delete_if_exist')
+    TriggerEvent('keep-jobgarages:client:delete_if_exist')
 end)
 
 -- Command and Keymapping

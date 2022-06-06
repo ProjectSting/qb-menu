@@ -1,10 +1,12 @@
 # qb-menu
+
 Menu System for the QBCore Framework
+
+![pet-menu](https://raw.githubusercontent.com/swkeep/qb-menu/main/.github/images/menu.jpg)
 
 This is a modified version of **[NH Context](https://forum.cfx.re/t/no-longer-supported-standalone-nerohiro-s-context-menu-dynamic-event-firing-menu/2564083)** by **[NeroHiro](https://github.com/nerohiro)**
 
---[[
-EXAMPLE MENU
+--[[EXAMPLE MENU
 --]]
 
 ```
@@ -39,6 +41,7 @@ RegisterCommand("qbmenutest", function(source, args, raw)
     })
 end)
 ```
+
 ```
 RegisterNetEvent('qb-menu:client:testMenu2', function(data)
     local number = data.number
@@ -59,6 +62,7 @@ RegisterNetEvent('qb-menu:client:testMenu2', function(data)
     })
 end)
 ```
+
 ```
 RegisterNetEvent('qb-menu:client:testButton', function(data)
     TriggerEvent('QBCore:Notify', data.message)
