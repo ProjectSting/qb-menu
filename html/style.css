@@ -77,6 +77,7 @@ body::-webkit-scrollbar {
     align-items: center;
     position: relative;
     justify-content: left;
+    min-width: 18px;
 }
 
 .button:hover {
